@@ -97,5 +97,8 @@ class Book extends Model
         static::deleted(
             fn (Book $book) => cache()->forget('book:' . $book->id)
         );
+        static::created(
+            fn (Book $book) => cache()->forget('book:' . $book->id)
+        );
     }
 }
